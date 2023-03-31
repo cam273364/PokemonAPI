@@ -1,3 +1,69 @@
 body {
     background-color: aqua;
 }
+
+[data-type="electric"]{
+    background-color: #F8D030;
+    border-top-color: #F8F878;
+    border-bottom-color: #B8A038;
+    color: black;
+
+}
+
+[data-type] {
+    border-style: solid none;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 0.15em;
+    font-variant: small-caps;
+    font-size: 9pt;
+    text-shadow: 0 1px 1px #807870;
+
+}
+
+.row {
+    display: flex;
+    
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.gap-md {
+    gap: 12px;
+}
+
+.align-center{
+    align-items: center;
+}
+
+.align-self-stretch{
+    align-self: stretch;
+}
+
+[data-type]{
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.card {
+    width: 138px;
+    border-radius: 10px;
+    background-color: cadetblue;
+    padding: 10px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.hide {
+    display: none;
+}
+
+.small-caps {
+    font-variant: small-caps;
+}

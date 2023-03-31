@@ -3,23 +3,33 @@
 const pokemonForm = document.getElementById("pokemonForm");
 console.log(pokemonForm)
 
-pokemonForm.addEventListener("submit",async (event) => {
+pokemonForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const pokemonName = pokemonForm.pokemonName.value;
   const pokemonShiny = pokemonForm.pokemonShiny.checked
   const pokemonData = await getPokemonData(pokemonName, pokemonShiny);
-  await displayPokemon(pokemonData)
+  displayPokemon(pokemonData)
 });
 
-function displayPokemon(pokemonData){
+function displayPokemon(pokemonData) {
+  const pokemonCard = document.getElementById('pokemonCard')
+  pokemonCard.classList.remove('hide')
   const pokemonName = document.getElementById('pokemonName')
   const pokemonImage = document.getElementById('pokemonImage')
   const pokemonTypeOne = document.getElementById('pokemonTypeOne')
   const pokemonTypeTwo = document.getElementById('pokemonTypeTwo')
- pokemonName.innerText = capitalizeFirstLetter(pokemonData.name)
+  pokemonName.innerText = capitalizeFirstLetter(pokemonData.name)
   pokemonImage.src = pokemonData.image
   pokemonTypeOne.innerText = capitalizeFirstLetter(pokemonData.types[0])
-  pokemonTypeTwo.innerText = capitalizeFirstLetter(pokemonData.types[1] || '')
+  pokemonTypeOne.dataset.type = pokemonData.types[0]
+  if (!pokemonData.types[1]) {
+    pokemonTypeTwo.classList.add('hide')
+  } else {
+    pokemonTypeTwo.innerText = capitalizeFirstLetter(pokemonData.types[1])
+    pokemonTypeTwo.dataset.type = pokemonData.types[1]
+    pokemonTypeTwo.classList.remove('hide')
+  }
+
 }
 
 async function getPokemonData(pokemonName, pokemonShiny) {
@@ -29,12 +39,12 @@ async function getPokemonData(pokemonName, pokemonShiny) {
   const shinyImage = pokemonData.sprites.front_shiny;
   const name = pokemonData.name;
   const types = pokemonData.types.map((type) => type.type.name)
- if(!pokemonShiny) {
-   return {
-    image: image,
-    name: name,
-    types: types
- }; 
+  if (!pokemonShiny) {
+    return {
+      image: image,
+      name: name,
+      types: types
+    };
   } else {
     return {
       image: shinyImage,
@@ -45,7 +55,7 @@ async function getPokemonData(pokemonName, pokemonShiny) {
 }
 
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 //listen for submission of form
 // -Pokemon Name

@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemon Search</title>
-    <link rel="stylesheet" href="./assets/style.css" />
-    
-    </head>
-<body>
-    <form id="pokemonForm">
-        <input name="pokemonName" placeholder="Type a Pokemon"/>
-        <label>
-          <input name="pokemonShiny" type="checkbox"/>
-          Shiny?
-        </label>
-        <button>Search</button>
-    </form>
-      <section>
-        <h1 id="pokemonName"></h1>
-        <img id="pokemonImage"/>
-        <h3 id="pokemonTypeOne"></h3>
-        <h3 id="pokemonTypeTwo"></h3>
-      </section>
-      <script src="./assets/main.js"></script>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pokemon Search</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+
+</head>
+
+<body class="column align-center gap-md">
+  <form id="pokemonForm">
+    <input name="pokemonName" placeholder="Type a Pokemon" />
+    <label>
+      <input name="pokemonShiny" type="checkbox" />
+      Shiny?
+    </label>
+    <button>Search</button>
+  </form>
+  <section id="pokemonCard" class="column card align-center hide">
+    <div id="pokemonName" class="bold small-caps"></div>
+    <img id="pokemonImage" />
+    <div class="row align-self-stretch gap-md">
+      <div id="pokemonTypeOne" class="column align-center"></div>
+      <div id="pokemonTypeTwo" class="column align-center"></div>
+    </div>
+  </section>
+  <script src="./assets/main.js"></script>
 </body>
 
-  
-  <!-- <ul>
+<!-- <ul>
     <li>pikachu</li>
     <li>charizard</li>
   </ul> -->
