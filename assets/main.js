@@ -1,7 +1,7 @@
 // Gather information from the user
 
 const pokemonForm = document.getElementById("pokemonForm");
-console.log(pokemonForm)
+
 
 pokemonForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -13,13 +13,33 @@ pokemonForm.addEventListener("submit", async (event) => {
 
 function displayPokemon(pokemonData) {
   const pokemonCard = document.getElementById('pokemonCard')
-  pokemonCard.classList.remove('hide')
+  
   const pokemonName = document.getElementById('pokemonName')
   const pokemonImage = document.getElementById('pokemonImage')
   const pokemonTypeOne = document.getElementById('pokemonTypeOne')
   const pokemonTypeTwo = document.getElementById('pokemonTypeTwo')
+  const pokemonAbilities = document.getElementById('pokemonAbilities')
+  const pokemonHeight = document.getElementById('pokemonHeight')
+  console.log(pokemonHeight)
+ 
+  pokemonCard.classList.remove('hide')
+  // pokemonHeight.innertext = pokemonData.height.value
   pokemonName.innerText = capitalizeFirstLetter(pokemonData.name)
+ 
   pokemonImage.src = pokemonData.image
+  pokemonAbilities.innerHTML = ''
+
+  const abilitiesLabel = document.createElement('h3')
+  abilitiesLabel.innerText = 'Abilities'
+  pokemonAbilities.appendChild(abilitiesLabel)
+  pokemonData.abilities.forEach(ability => {
+  
+    const div = document.createElement('div')
+    div.innerText = capitalizeFirstLetter(ability)
+    pokemonAbilities.appendChild(div)
+    
+  })
+  
   pokemonTypeOne.innerText = capitalizeFirstLetter(pokemonData.types[0])
   pokemonTypeOne.dataset.type = pokemonData.types[0]
   if (!pokemonData.types[1]) {
@@ -38,21 +58,30 @@ async function getPokemonData(pokemonName, pokemonShiny) {
   const image = pokemonData.sprites.front_default;
   const shinyImage = pokemonData.sprites.front_shiny;
   const name = pokemonData.name;
+  const height = pokemonData.height
+  console.log(height)
   const types = pokemonData.types.map((type) => type.type.name)
+  const abilities = pokemonData.abilities.map((ability) => ability.ability.name)
+  
   if (!pokemonShiny) {
     return {
       image: image,
       name: name,
-      types: types
+      types: types,
+      abilities: abilities,
+      height: height
     };
   } else {
     return {
       image: shinyImage,
       name: name,
-      types: types
+      types: types,
+      abilities: abilities,
+      height: height
     }
   }
 }
+
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -65,3 +94,9 @@ function capitalizeFirstLetter(string) {
 // -Name of the Pokemon
 // -Image with the picture of the Pokemon
 //conduct a search but also pass in whether you'd like to see shiny
+
+
+//add a pokemon to list
+//display abilities
+//search by pokemon number
+//get random pokemon

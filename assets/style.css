@@ -1,3 +1,9 @@
+header {
+    font-variant: small-caps;
+    font-size: 72px;
+    font-weight: bold;
+}
+
 body {
     background-color: aqua;
 }
@@ -10,6 +16,140 @@ body {
 
 }
 
+[data-type="poison"]{
+    background-color: #A040A0;
+    border-top-color: #D880B8;
+    border-bottom-color: #483850;
+    color: rgb(245, 243, 243);
+
+}
+
+[data-type="flying"]{
+    background-color: #f1f0eb;
+    border-top-color: #70706d;
+    border-bottom-color: #070600;
+    color: rgb(3, 3, 3);
+
+}
+
+[data-type="water"]{
+    background-color: #2954cab7;
+    border-top-color: #2954ca;
+    border-bottom-color: #060f41;
+    color: rgb(248, 245, 245);
+
+}
+
+[data-type="grass"]{
+    background-color: #07681c93;
+    border-top-color: #78f88d;
+    border-bottom-color: #38b85459;
+    color: white;
+
+}
+
+[data-type="ice"]{
+    background-color: #48cdf5;
+    border-top-color: #94eef1;
+    border-bottom-color: #94eef105;
+    color:black;
+
+}
+
+[data-type="normal"]{
+    background-color: #A8A878;
+    border-top-color: #D8D8D0;
+    border-bottom-color: #705848;
+    color: black;
+
+}
+
+[data-type="fighting"]{
+    background-color: #C03028;
+    border-top-color: #F08030;
+    border-bottom-color: #484038;
+    color: white;
+
+}
+
+
+[data-type="psychic"]{
+    background-color: #F85888;
+    border-top-color: #F8C0B0;
+    border-bottom-color: #789010;
+    color: black;
+
+}
+
+[data-type="bug"]{
+    background-color: #02300c;
+    border-top-color: #43d6639a;
+    border-bottom-color: #023b10;
+    color: white;
+    
+
+}
+
+[data-type="rock"]{
+    background-color: #B8A038;
+    border-top-color: #E0C068;
+    border-bottom-color: #886830;
+    color: black;
+
+}
+
+[data-type="ghost"]{
+    background-color: #705898;
+    border-top-color: #A890F0;
+    border-bottom-color: #483850;
+    color: white;
+
+}
+
+[data-type="dark"]{
+    background-color: #020100;
+    border-top-color: #f3f3f0bd;
+    border-bottom-color: #b8a13800;
+    color: white;
+
+}
+
+
+[data-type="dragon"]{
+    background-color: #7038F8;
+    border-top-color: #B8A0F8;
+    border-bottom-color: #483890;
+    color: black;
+
+}
+
+
+[data-type="ground"]{
+    background-color: #6d8349;
+    border-top-color: #D8D8C0;
+    border-bottom-color: #807870;
+    color: black;
+
+}
+
+
+[data-type="fairy"]{
+    background-color: #F0B6BC;
+    border-top-color: #F5CAD1;
+    border-bottom-color: #905F63;
+    color: black;
+
+}
+
+[data-type="fire"]{
+    background-color: #F08030;
+    border-top-color: #F8D030;
+    border-bottom-color: #C03028;
+    color: black;
+
+}
+
+
 [data-type] {
     border-style: solid none;
     border-width: 1px;
@@ -18,6 +158,7 @@ body {
     font-variant: small-caps;
     font-size: 9pt;
     text-shadow: 0 1px 1px #807870;
+    font-weight: 400;
 
 }
 
@@ -66,4 +207,25 @@ body {
 
 .small-caps {
     font-variant: small-caps;
+}
+
+#pokemonForm {
+    padding: 32px;
+}
+
+#pokemonAbilities {
+    padding-top: 12px;
+}
+
+#pokemonAbilities div {
+    margin: 6px;
+    text-align: center;
+    font-variant: small-caps;
+    font-weight: 200;
+}
+
+#pokemonAbilities h3 {
+    text-align: center;
+    font-variant: small-caps;
+    
 }
