@@ -20,10 +20,13 @@ function displayPokemon(pokemonData) {
   const pokemonTypeTwo = document.getElementById('pokemonTypeTwo')
   const pokemonAbilities = document.getElementById('pokemonAbilities')
   const pokemonHeight = document.getElementById('pokemonHeight')
-  console.log(pokemonHeight)
+  const pokemonWeight = document.getElementById('pokemonWeight')
+  console.log(pokemonWeight)
  
   pokemonCard.classList.remove('hide')
-  // pokemonHeight.innertext = pokemonData.height.value
+  
+  pokemonHeight.innerText = 'Height: ' + pokemonData.height + ' m'
+  pokemonWeight.innerText = 'Weight: ' + pokemonData.weight + ' kg'
   pokemonName.innerText = capitalizeFirstLetter(pokemonData.name)
  
   pokemonImage.src = pokemonData.image
@@ -58,8 +61,10 @@ async function getPokemonData(pokemonName, pokemonShiny) {
   const image = pokemonData.sprites.front_default;
   const shinyImage = pokemonData.sprites.front_shiny;
   const name = pokemonData.name;
-  const height = pokemonData.height
-  console.log(height)
+  const height = String(pokemonData.height/10)
+  const weight = String(pokemonData.weight/10)
+  console.log(weight)
+  console.log(pokemonData.height)
   const types = pokemonData.types.map((type) => type.type.name)
   const abilities = pokemonData.abilities.map((ability) => ability.ability.name)
   
@@ -69,7 +74,9 @@ async function getPokemonData(pokemonName, pokemonShiny) {
       name: name,
       types: types,
       abilities: abilities,
-      height: height
+      height: height,
+      weight: weight
+
     };
   } else {
     return {
@@ -77,7 +84,8 @@ async function getPokemonData(pokemonName, pokemonShiny) {
       name: name,
       types: types,
       abilities: abilities,
-      height: height
+      height: height,
+      weight: weight
     }
   }
 }

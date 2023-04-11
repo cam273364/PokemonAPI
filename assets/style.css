@@ -5,7 +5,12 @@ header {
 }
 
 body {
-    background-color: aqua;
+    
+    background-image: url(https://external-preview.redd.it/SDAO4cgS_5eoNNR_LsvhJ86N23wvbSufGnAd-QW2f3s.png?width=960&crop=smart&auto=webp&v=enabled&s=7ab33f7e650de669c128f2e325b6fcd684dc701c);
+    background-color: #5bc4e4;
+    background-size: 1000px;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 [data-type="electric"]{
@@ -214,11 +219,11 @@ body {
 }
 
 #pokemonAbilities {
-    padding-top: 12px;
+    padding-top: 10px;
 }
 
 #pokemonAbilities div {
-    margin: 6px;
+    margin: 2px;
     text-align: center;
     font-variant: small-caps;
     font-weight: 200;
@@ -228,4 +233,14 @@ body {
     text-align: center;
     font-variant: small-caps;
     
+}
+
+#pokemonHeight {
+    margin-top: 32px;
+    font-variant: small-caps;
+}
+
+#pokemonWeight {
+    margin-bottom: 16px;
+    font-variant: small-caps;
 }
