@@ -8,17 +8,10 @@
   <link rel="stylesheet" href="./assets/style.css" />
 
 </head>
-<header>Pokedex</header>
+<header>My Team</header>
 <body class="column align-center gap-md">
-  <a href="teamlist.html">My Team</a>
-  <form id="pokemonForm">
-    <input name="pokemonName" placeholder="Type a Pokemon" />
-    <label>
-      <input name="pokemonShiny" type="checkbox" />
-      Shiny?
-    </label>
-    <button>Search</button>
-  </form>
+  <a href="index.html">Back to Search</a>
+  <div id="pokemonContainer"></div>
   <section id="pokemonCard" class="column card align-center hide">
     <div id="pokemonName" class="bold small-caps"></div>
     <img id="pokemonImage" />
@@ -29,15 +22,19 @@
       
       
     </div>
-   <button id="addToTeamButton">Add To Team!</button>
+   <button id="addToTeamButton">Remove From Team!</button>
     <div id="pokemonAbilities"></div>
     <div id="pokemonHeight"></div>
     <div id="pokemonWeight"></div>
   </section>
-  <script src="./assets/main.js"></script>
+  <script src="./assets/teamlist.js"></script>
 </body>
 
 <!-- <ul>
     <li>pikachu</li>
     <li>charizard</li>
   </ul> -->
+
+<!-- can add the same pokemon twice -->
+<!-- shows html object instead of their types -->
+<!-- pill boxes for types not showing -->

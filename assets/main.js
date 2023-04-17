@@ -1,13 +1,15 @@
 // Gather information from the user
 
 const pokemonForm = document.getElementById("pokemonForm");
-
+let activePokemon = null
 
 pokemonForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const pokemonName = pokemonForm.pokemonName.value;
   const pokemonShiny = pokemonForm.pokemonShiny.checked
   const pokemonData = await getPokemonData(pokemonName, pokemonShiny);
+  activePokemon = pokemonData
+  activePokemon.isShiny = pokemonShiny
   displayPokemon(pokemonData)
 });
 
@@ -94,6 +96,35 @@ async function getPokemonData(pokemonName, pokemonShiny) {
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
+
+
+const addToTeamButton = document.getElementById('addToTeamButton')
+addToTeamButton.addEventListener("click", (event) => {
+  //get that value from local storage
+  const localStoragePokemon = localStorage.getItem('pokemon')
+    //if statement to test if that is null)
+  if (!localStoragePokemon){
+    let pokemonStorageArray = []
+    pokemonStorageArray.push(activePokemon)
+    localStorage.setItem('pokemon', JSON.stringify(pokemonStorageArray))
+  } else {
+    let pokemonStorageArray = JSON.parse(localStoragePokemon)
+    console.log(pokemonStorageArray, activePokemon)
+    if(pokemonStorageArray.some(pokemon => activePokemon.name === pokemon.name && activePokemon.isShiny === pokemon.isShiny)){
+      window.alert("You've already added this pokemon to your team!")
+      return
+    }
+    pokemonStorageArray.push(activePokemon)
+    localStorage.setItem('pokemon', JSON.stringify(pokemonStorageArray));
+  }
+  
+})
+
+
+
+
+//localStorage.setItem('pokemon', JSON.stringify(activePokemon))
+
 //listen for submission of form
 // -Pokemon Name
 // On submit, send a request off to get the info to display back to the user
